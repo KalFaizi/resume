@@ -644,7 +644,7 @@ const logoChip = (o, label, lg) => {
   const mark = `<span${o.logo ? ' style="display:none"' : ''}>${o.mark||""}</span>`;
   const img  = o.logo
     ? `<img src="${o.logo}" alt="${label} logo" loading="lazy"
-         onerror="this.remove(); this.parentNode.querySelector('span').style.display='block'">`
+         onerror="var p=this.parentNode; this.remove(); p.querySelector('span').style.display='block'">`
     : "";
   return `<span class="logo-chip${lg ? ' logo-chip--lg' : ''}">${img}${mark}</span>`;
 };
@@ -772,7 +772,7 @@ $("#certGrid").innerHTML = RESUME.certifications.groups.map((g,i)=>{
   const mark = `<span class="cred__mark"${g.logo ? ' style="display:none"' : ''}>${g.mark||""}</span>`;
   const img  = g.logo
     ? `<img src="${g.logo}" alt="${g.h} logo" loading="lazy"
-         onerror="this.remove(); this.parentNode.querySelector('.cred__mark').style.display='block'">`
+         onerror="var p=this.parentNode; this.remove(); p.querySelector('.cred__mark').style.display='block'">`
     : "";
   return `<div class="cred ${i%2 ? 'cred--fill':''}">
     <div class="cred__head"><span class="cred__logo">${img}${mark}</span><h3>${g.h}</h3></div>
@@ -786,4 +786,3 @@ $("#ctaLede").textContent  = RESUME.cta.lede;
 </script>
 </body>
 </html>
-
